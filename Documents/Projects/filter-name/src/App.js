@@ -38,39 +38,42 @@ function App() {
     <div className='App'>
       <h1>Filter Name</h1>
       <input onChange={handleOnChange} />
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <ul
+      {!bookTitle ? (
+        <p>Loading.....</p>
+      ) : (
+        <div
           style={{
             display: "flex",
-            alignItems: "baseline",
-            flexDirection: "column",
+            alignItems: "center",
             justifyContent: "center",
-            textAlign: "center",
           }}
         >
-          {filteredBookTitles?.map((title, index) => (
-            <li
-              key={index}
-              style={{
-                display: "flex",
-                alignItems: "baseline",
-                flexDirection: "column",
-                justifyContent: "center",
-                textAlign: "center",
-                marginBottom: "10px",
-              }}
-            >
-              {title}
-            </li>
-          ))}
-        </ul>
-      </div>
+          <ul
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              flexDirection: "column",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            {filteredBookTitles?.map((title, index) => (
+              <li
+                key={index}
+                style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                {title}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
